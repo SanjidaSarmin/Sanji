@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form onsubmit="return validateEmailInput()">
+    <label for="email">Email:</label>
+    <input type="text" id="email" placeholder="Enter your email">
+    <span id="email-error" style="color: red;"></span> <br><br>
+
+    <label for="password">Password:</label>
+    <input type="text" id="password">
+    <span id="password-error" style="color: red;"></span><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+  <script>email-error
+    function validateEmailInput() {
+      const emailInput = document.getElementById('email').value;
+      const feedbackElement = document.getElementById('email-error');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (emailRegex.test(emailInput)) {
+        feedbackElement.textContent = ""; // Email is valid
+      } else {
+        feedbackElement.textContent = "Please enter a valid email address.";
+      }
+      return false;
+    }
+  </script>
+</body>
+</html>

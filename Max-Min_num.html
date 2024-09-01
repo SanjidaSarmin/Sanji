@@ -1,0 +1,27 @@
+<html>
+    <body>
+      <p id ="demo"></p>
+    </body>
+    <script>
+        var c = -Infinity;
+        var c1 = Infinity;
+    
+        for (i = 0; i < 5; i++){
+          let n = Number(prompt("Please insert a number"));
+    
+          if (c < n){
+            c = n;
+        }
+          if ( n < c1 ) {
+            c1 = n;
+          }
+        
+        }
+    
+      
+    
+        document.write( "The highest number is " + c +"<br>" + "The lowest number is " + c1);
+    </script>
+    
+    
+    </html>

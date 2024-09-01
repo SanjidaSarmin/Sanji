@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime number</title>
+</head>
+<body>
+    <script>
+        let n = prompt("Enter a number");
+        let output = "";
+
+        if (n <= 1) {
+            output = " is not a prime number";
+        } else if (n == 2) {
+            output = " is a prime number"; 
+        } else {
+
+            for (var x = 2; x < n; x++){
+                if ( n % x === 0) {
+                    output = " is a prime number";
+                    break;
+                }
+                output = " is a prime number";
+            }
+
+        }
+
+        document.write("<h3>" + n + output + "<h3>");
+    </script>
+</body>
+</html>

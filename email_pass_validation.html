@@ -1,0 +1,68 @@
+
+<html>
+    <head></head>
+    <body>
+        <form onsubmit="return validateEmailInput()">
+            <lebel for="email">Email: </lebel>
+            <input type="text" id="email" name="email">
+            <span id="email-error" style="color: red"></span><br>
+
+
+            <lebel for="password">Password: </lebel>
+            <input type="text" id="password" name="password">
+            <span id="password-error" style="color: red"></span><br>
+            
+            <button type="submit">Submit</button> 
+        </form>
+    </body>
+    <script>
+        function validateEmailInput() {
+          const emailInput = document.getElementById("email").value;
+          const feedbackElement = document.getElementById("email-error");
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+  
+          if (emailRegex.test(emailInput)) {
+            feedbackElement.innerHTML = ""; // Email is valid
+          } else {
+            feedbackElement.innerHTML = "Please enter a valid email address.";
+          }
+         
+
+        //   if (emailInput == "") {
+        //   feedbackElement.innerHTML = "Required";
+          
+        // } else if (!(emailInput.includes("@") && emailInput.includes("."))) {
+        //   feedbackElement.innerHTML = "invalid Email";
+          
+        // } else {
+        //   feedbackElement.innerHTML = "";
+        // } return false;
+
+        const passwordInput = document.getElementById("password").value;
+        const feedbackElementPass = document.getElementById("password-error");
+
+        // // Validate length
+        if (passwordInput.length >= 8 && passwordInput.length <= 16) {
+          feedbackElementPass.innerHTML = "";
+        } else {
+          feedbackElementPass.innerHTML = "Invalid";
+        }
+
+        var lowerCaseLetters = /[a-z]/g;
+        var upperCaseLetters = /[A-Z]/g;
+        var numbers = /[0-9]/g;
+
+        if (
+          passwordInput.match(lowerCaseLetters) &&
+          passwordInput.match(upperCaseLetters) &&
+          passwordInput.match(numbers)
+        ) {
+          feedbackElementPass.innerHTML = "";
+        } else {
+          feedbackElementPass.innerHTML = "Invalid";
+        }
+        return false;
+    }
+      </script>
+</html>

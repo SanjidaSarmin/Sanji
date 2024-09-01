@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="return formSub()">
+
+        <lebel for="name">Name:</lebel>
+        <input type="text" id="name" class="name"><br><br>
+
+        <lebel for="contact">Contact:</lebel>
+        <input type="number" id="contact" class="contact"><br><br>
+
+        <p>Remarks:</p>
+        <textarea id="remarks" class="remarks">Remarks</textarea><br><br>
+
+        <p>Gender:</p>
+        <input type="radio" id="male" name="gender" value="male">
+        <lebel for="male">Male</lebel><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <lebel for="female">Female</lebel><br>
+      
+     
+
+        <p>Select your course:</p>
+        <input type="checkbox" id="nt" name="course" value="nt">
+        <lebel for="nt">NT</lebel><br>
+        <input type="checkbox" id="iad" name="course" value="iad">
+        <lebel for="iad">IAD</lebel><br>
+        <input type="checkbox" id="ddd" name="course" value="ddd">
+        <lebel for="ddd">DDD</lebel><br>
+        <input type="checkbox" id="esad" name="course" value="esad">
+        <lebel for="esad">ESAD</lebel><br>
+        <input type="checkbox" id="others" name="course" value="others">
+        <lebel for="others">Others</lebel><br>
+
+        <p>Select your location:</p>
+        <select for="location" id="location">
+            <option value="banani">Banani</option><br>
+            <option value="dhanmondi">Dhanmondi</option><br>
+            <option value="mirpur">Mirpur</option><br>
+            <option value="others">Others</option><br>
+        </select><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        
+        function  formSub(){
+        let name = document.getElementById("name").value;
+        let contact = document.getElementById("contact").value;
+        let remarks = document.getElementById("remarks").value;
+        let gender = document.querySelector("input[name='gender']:checked")?.value;
+        let course = document.querySelectorAll("input[name='course']:checked").values().toArray().map(e => e.value).join(" , ");
+        let location = document.getElementById("location").value;
+
+
+        let result = "Name:- " + name + "</br>" +
+                "Contact:- " + contact + "</br>" +
+                "Remakrs:- " + remarks + "</br>" +
+                "Gender:- " + gender + "</br>" +
+                "Course:- " + course + "<br>" +
+                "Location:- " + location 
+
+            let nW = window.open("", "", "height=700;width=700");
+            nW.document.write(result);
+
+            return false
+        }
+    </script>
+    
+</body>
+</html>

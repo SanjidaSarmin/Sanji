@@ -1,0 +1,125 @@
+<html>
+    <head>
+        <title>Form Validation</title>
+    </head>
+    <link rel="Stylesheet" href="style.css">
+    <body>
+        <h1>Form Validation</h1>
+        <form onsubmit="return validation ();">
+            <input type="hidden" name="id">
+            <div class="input-container">
+                <p>Username:</p>
+                <input type="text" id="uname" name="uname" placeholder="Username">
+                <lebel for="uname" id="unameLbl" class="validation-lbl">Username is required</lebel>
+            </div>
+            <div class="input-container">
+                <p>Password:</p>
+                <input type="text" id="pswd" name="pswd" placeholder="Password">
+                <lebel for="pswd" id="pswdLbl" class="validation-lbl">Password should be 8 to 16 characters</lebel>
+            </div> 
+            <div class="input-container">
+                <p>Description:</p>
+                <textarea id="description" name="description"></textarea>
+                <lebel for="description" id="descriptionLbl" class="validation-lbl">Description is required</lebel>
+            </div> 
+            <div class="input-container">
+                <p>Choose Subject:</p>
+                <label><input type="radio" name="sub" value="java"> Java </label>
+                <label><input type="radio" name="sub" value="c#"> C# </label>
+                <label><input type="radio" name="sub" value="php"> PHP </label>
+                <lebel id="subLbl" class="validation-lbl">Subject is required</lebel>
+            </div>
+            <div class="input-container">
+                <p>Education</p>
+                <label><input type="checkbox" name="edu" value="ssc"> SSC </label>
+                <label><input type="checkbox" name="edu" value="hsc"> HSC </label>
+                <label><input type="checkbox" name="edu" value="honours"> Honours</label>
+                <label><input type="checkbox" name="edu" value="masters"> Masters </label>
+                <lebel id="eduLbl" class="validation-lbl">Please select 2 or 3 education status</lebel>
+            </div>
+            <div class="input-container">
+                <p>Country</p>
+                <select id="country" name="country">
+                    <option value="">Select your country </option>
+                    <option value="bd"> Bangladesh </option>
+                    <option value="en">England </option>
+                    <option value="in">India </option>
+                    <option value="usa"> USA</option>
+                    <option value="ca">Canada </option>
+                </select>
+                <lebel id="countryLbl" class="validation-lbl">Please select your country</lebel>
+            </div>
+            <div class="input-container">
+                <button type="submit">Submit</button>
+            </div>
+            
+        </form>
+        <script>
+            function validation () {
+                let username = document.getElementById("uname").value;
+                if (uname == 0) {
+                showMessage("unameLbl");
+                return false;
+                } else {
+                hideMessage("unameLbl");
+                }
+
+                let password = document.getElementById("pswd").value;
+                if (!password || password.length < 8 || password.length > 16){
+                showMessage("pswdLbl");
+                return false;
+                } else {
+                hideMessage("pswdLbl");
+                }
+
+                let description = document.getElementById("description").value;
+                if (description == 0) {
+                showMessage("descriptionLbl");
+                return false;
+                } else {
+                hideMessage("descriptionLbl");
+                }
+
+                let subject = document.querySelector("input[name='sub']:checked");
+                if (subject == 0) {
+                showMessage("subLbl");
+                return false;
+                } else {
+                hideMessage("subLbl");
+                }
+
+                let education = document.querySelectorAll("input[name='edu']:checked");
+                if (education.length < 2 || education.length < 3 ) {
+                showMessage("eduLbl");
+                return false;
+                } else {
+                hideMessage("eduLbl");
+                }
+
+                let country = document.querySelector("#country").value;
+                if (country == 0) {
+                showMessage("countryLbl");
+                return false;
+                } else {
+                hideMessage("countryLbl");
+                }
+
+                return true;
+
+                }
+
+                function showMessage(labelId) {
+                document.getElementById(labelId).style.visibility = 'visible';
+                }
+
+                function hideMessage(labelId) {
+                document.getElementById(labelId).style.visibility = 'hidden';
+                }
+
+
+                function getElementsByQuery(query) {
+                return document.querySelectorAll(query);
+                }   
+        </script>
+    </body>
+</html>
